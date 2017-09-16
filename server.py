@@ -77,10 +77,10 @@ def api(type,name):
         }
 @route('/')
 def index():
-    return template("index.html")
+    return template("tpl/index.html")
 @route('/Comparison')
 def com():
-    return template("comparison.html")
+    return template("tpl/comparison.html")
 @route('/css/<filename>')
 def static_content(filename):   
     return static_file(filename, root='./css') 
