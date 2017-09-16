@@ -7,7 +7,7 @@ Where you can use:
 | Name        | Description           | 
 | ------------- |-------------| 
 | iOS APP Development | iOS Development restricted developers to use SSL when communicating with server| 
-| Beautify Address | Who don't the address started with green locks |
+| Beautify Address | Who don't like the address started with green locks |
 | And more... | |
 
 But remember!! Do **NOT** use this in production. Never!
