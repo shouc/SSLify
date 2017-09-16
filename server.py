@@ -91,7 +91,9 @@ def api(type,name):
 @route('/')
 def index():
     return template("index.html")
-
+@route('/Comparison')
+def com():
+    return template("comparison.html")
 @route('/css/<filename>')
 def static_content(filename):   
     return static_file(filename, root='./css') 
