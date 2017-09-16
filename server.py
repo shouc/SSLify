@@ -5,14 +5,6 @@ from bottle import route, run, template, hook,response,static_file
 import re
 import os
 
-########
-cf = CloudFlare.CloudFlare(email='koto.buki@icloud.com', token='b440a6ac29737e12b8cced781099472252a54')
-zones = cf.zones.get()
-end = "sslify.tech"
-zone_id = "dd6b8fb3b226c36fa2008078996cf07a"
-########
-
-"""
 Email = input("Email?")
 Token = input("Token?")
 cf = CloudFlare.CloudFlare(email=Email, token=Token)
@@ -30,11 +22,6 @@ hostname = input("hostname? [Optional]")
 
 end = z[k-1][1]
 zone_id = z[k-1][0]
-
-"""
-port = None
-hostname = None
-
 
 
 def dns(type,name,content):
