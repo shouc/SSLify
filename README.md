@@ -1,4 +1,18 @@
-Rapidly SSLify Your Server.
+![logo](https://raw.githubusercontent.com/InvidHead/SSLify/master/logo.png)
+## WTF is it
+It can rapidly provide your server SSL support with out purchasing, waiting...
+
+Where you can use:
+
+| Name        | Description           | 
+| ------------- |-------------| 
+| iOS APP Development | iOS Development restricted developers to use SSL when communicating with server| 
+| Beautify Address | Who don't the address started with green locks |
+| And more... | |
+
+But remember!! Do **NOT** use this in production. Never!
+
+Users may kill you!!
 
 ## Why Us
 A simple comparison
@@ -14,6 +28,7 @@ Auto SSL Deploy  | ✗  | ✗ | ✓
 Multi-lingual | ✗  | ✗ | ✓
 Stable DNS | ✗  | ✗ | ✓
 No Privacy Leaks | ✓  | ✗ | ✓
+Concept | Local DNS Server  | Local DNS Server | CloudFlare
 
 ## How does it work
 
