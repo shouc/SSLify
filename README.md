@@ -1,6 +1,11 @@
 ![logo](https://raw.githubusercontent.com/InvidHead/SSLify/master/logo.png)
+
+[![platform](https://img.shields.io/badge/platform-osx%2Flinux%2Fwindows-green.svg)]()
+[![python](https://img.shields.io/badge/python-2.7-blue.svg)](https://www.python.org/downloads/)
+
 ## WTF is it
-It can rapidly provide your server SSL support with out purchasing, waiting...
+
+It can rapidly provide your server SSL support without purchasing, waiting...
 
 Where you can use:
 
@@ -15,6 +20,7 @@ But remember!! Do **NOT** use this in production. Never!
 Users may kill you!!
 
 ## Why Us
+
 A simple comparison
 
 || XIP.io | SSLip.io | Our SSLify |
@@ -64,6 +70,12 @@ python server.py
 ```
 
 For errors, please submit issues.
+
 ## Contributors
 
-Shou Chaofan (scf@ieee.org)
+Built with ![](https://cloud.githubusercontent.com/assets/4301109/16754758/82e3a63c-4813-11e6-9430-6015d98aeaab.png) by Shou Chaofan (scf@ieee.org)
+
+## Donations
+**Server eats money!**
+
+*Paypal:* [<img alt="Donate via Paypal" src="https://user-images.githubusercontent.com/4301109/28491754-14774f54-6f14-11e7-9975-8a5faeda7e30.gif" height="40" width="120">](https://www.paypal.me/kotobuki)
