@@ -71,11 +71,13 @@ python server.py
 
 For errors, please submit issues.
 
+## Donations
+**Server eats money!**
+
+*Paypal:* [Click Here](https://www.paypal.me/kotobuki)
+
 ## Contributors
 
 Built with ![](https://cloud.githubusercontent.com/assets/4301109/16754758/82e3a63c-4813-11e6-9430-6015d98aeaab.png) by Shou Chaofan (scf@ieee.org)
 
-## Donations
-**Server eats money!**
 
-*Paypal:* [<img alt="Donate via Paypal" src="https://user-images.githubusercontent.com/4301109/28491754-14774f54-6f14-11e7-9975-8a5faeda7e30.gif" height="40" width="120">](https://www.paypal.me/kotobuki)
