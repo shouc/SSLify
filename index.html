@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>SSLify - Rapidly SSL Your Website</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">SSLify</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="alrt()">Create</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="alrtinfo()">Contact</a>
+      </li>
+    </ul>
+    <div class="form-inline">
+      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Chinese Version</button>
+    </div>
+  </div>
+</nav>
+<font color="#fff">
+<section class="intro">
+  <div class="container">
+    <h1>SSLify</h1>
+    <h3 style="font-weight: lighter;">Rapidly SSL Your Website</h3><br>
+    <div class="container">
+      <button type="button" onclick="alrtintro()" class="btn btn-dark btn-lg">Introduction</button>
+      <button type="button" onclick="$('html, body').animate({scrollTop:$('#tutorial').position().top}, 'slow');" class="btn btn-secondary btn-lg">Tutorial</button><br><br>
+    </div>
+    <div class="alert alert-warning" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      We could no longer purchase a wildcard SSL license, but you can still bind your server to our domain. If you want to setup the environment for private use and hope to enable the SSL function, please deploy on your own behalf.<br>
+      Source code is at <a href='https://github.com/InvidHead/SSLify'>https://github.com/InvidHead/SSLify</a>
+    </div>
+  </div>
+</section>
+
+<section class="timeline" id="tutorial">
+  <ul>
+    <li>
+      <div>
+        <time>Configure the Server</time> 
+        <strong style="text-decoration:line-through;">Auto deploy: </strong>(still developing)<br>
+        <a style="text-decoration:line-through;">
+        If your server is Linux and using Apache, you can download the certain script to deploy by one line in Terminal.</a>
+        <br><br>
+        <strong>Manual Deploy: </strong><br>
+        Download both <a href="cert/"><font color="#fff">public and private key</font></a> and deploy to your server. The tutorial can be found via Google.
+
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>Recording</time> Make your server bind with our domain like managing the DNS! <br><br>
+        <button class="btn btn-light" type="submit" href="#" onclick="alrt()"><font color="#F45B69">Create Records!</font></button>
+
+        
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>Enjoy!</time>
+        You can use this in iOS APP demo.<br>
+        You can beautify your website's address.<br>
+        And more....<br>
+        But remember!! Do not use this in production. Never!<br>
+        User may kill you!!
+      </div>
+    </li>
+
+  </ul>
+
+
+</section>
+  
+    <script  src="js/index.js"></script>
+    <script  src="js/jquery.min.js"></script>
+    <script src="alert/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="alert/sweetalert2.min.css">
+    <script>
+      
+      $(document).ready(function() {
+          $('.scroll1').click(function(){
+              $('html, body').animate({scrollTop:$('#tutorial').position().top}, 'slow');
+              return false;
+          });
+      });
+      function alrtinfo(){
+        swal({
+              title: 'About us',
+              html: "Hi! This system is developed by Shou and supported by his school! The source code can be found <a href='https://github.com/InvidHead/SSLify'>here</a>. <br><strong>Extremely easy to deploy!</strong>" 
+        })
+      }
+      function alrtintro(){
+        swal({
+              title: 'Detailed Introduction',
+              html: "<p><b>SSLify.tech</b> is a means for developers to test against valid SSL certificates without the bother of purchasing them. A wildcard SSL certificate for *.sslify.tech and the corresponding key, both downloadable from cert/ Install the certificate and key on the server, modify the server's configuration to use the certificate and key, and restart the daemon. After that, browse the server using the SSLify.tech hostname via HTTPS (e.g.<a href='https://bla.SSLify.tech'>https://bla.SSLify.tech</a>) and receive a valid SSL connection (green lock), all in a matter of seconds." 
+        })
+      }
+      function alrt(){
+        swal.setDefaults({
+          confirmButtonText: 'Next &rarr;',
+          showCancelButton: true,
+          animation: false,
+          progressSteps: ['1', '2']
+        })
+
+        var steps = [
+          {
+            input: 'select',
+            title: 'Record type!',
+            text: "If your server provider gives you the IP, you'd better choose A and vice versa.",
+            inputOptions: {
+              'CNAME': 'CNAME',
+              'A': 'A',
+            },
+          },
+          {
+            input: 'text',
+            title: 'Server info!',
+            text: "Please input your sever's hostname or IP",
+            inputValidator: function (value) {
+              return new Promise(function (resolve, reject) {
+                if (value.indexOf(".")!=-1) {
+                  resolve()
+                } else {
+                  reject('Please correctly input the information!')
+                }
+              })
+            }
+          }
+        ]
+
+        swal.queue(steps).then(function (result) {
+          swal.resetDefaults()
+          var xmlHttp = new XMLHttpRequest();
+          var url = "/api/"+result[0]+"/"+result[1]+"/";
+          xmlHttp.open( "GET", url , false ); 
+          // false for synchronous request
+          xmlHttp.send( null );
+          obj = JSON.parse(xmlHttp.responseText);
+          if (obj.type == "success"){
+            swal({
+              type: 'success',
+              title: 'Enjoy!!!',
+              html: obj.message 
+            })
+          }
+          else{
+            swal({
+              type: 'error',
+              title: 'Failed!!!',
+              html: obj.message 
+            })
+          }
+          
+        }, function () {
+          swal.resetDefaults()
+        })
+      }
+
+    </script>
+</body>
+</html>
