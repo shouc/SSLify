@@ -5,8 +5,42 @@ from bottle import route, run, template, hook,response,static_file
 import re
 import os
 
-Email = input("Email?")
-Token = input("Token?")
+print("""                                                                                                                       
+                                                                                                                        
+                                                                        @@@          @@@@@@                             
+                       ;@@@@@~           !@@@@@-                       @@@@@        @@@@@@@                             
+                     @@@@@@@@@@@       @@@@@@@@@@@     @@@@@           @@@@@       @@@@@@@@                             
+                    @@@@@@@@@@@@      @@@@@@@@@@@@     @@@@@           @@@@@      @@@@@@@@@                             
+                   @@@@@@@@@@@@@     @@@@@@@@@@@@@     @@@@@            @@@       @@@@@                                 
+                   @@@@@      @@     @@@@@      @@     @@@@@                      @@@@                                  
+                  :@@@@             *@@@@              @@@@@                      @@@@                                  
+                  @@@@@             @@@@@              @@@@@                      @@@@                                  
+                  $@@@@-            @@@@@              @@@@@           @@@@@   @@@@@@@@@@@ @@@@@      @@@@@             
+                   @@@@@#            @@@@@=            @@@@@           @@@@@   @@@@@@@@@@@ @@@@@      @@@@@             
+                   @@@@@@@#          @@@@@@@=          @@@@@           @@@@@   @@@@@@@@@@@  @@@@      @@@@              
+                    @@@@@@@@@         @@@@@@@@@        @@@@@           @@@@@      @@@@      @@@@@    @@@@@              
+                     @@@@@@@@@!        @@@@@@@@@:      @@@@@           @@@@@      @@@@      $@@@@    @@@@@              
+                      !@@@@@@@@@        =@@@@@@@@@     @@@@@           @@@@@      @@@@       @@@@    @@@@               
+                        .@@@@@@@@         ,@@@@@@@=    @@@@@           @@@@@      @@@@       @@@@*   @@@@               
+                           @@@@@@            @@@@@@    @@@@@           @@@@@      @@@@       .@@@@  @@@@@               
+                            @@@@@.            @@@@@    @@@@@           @@@@@      @@@@        @@@@  @@@@                
+                             @@@@@             @@@@$   @@@@@           @@@@@      @@@@        @@@@  @@@@                
+                             @@@@@             @@@@;   @@@@@           @@@@@      @@@@         @@@@:@@@@                
+                            #@@@@             @@@@@    @@@@@           @@@@@      @@@@         @@@@@@@@                 
+                   @@@     @@@@@@    @@@     @@@@@@    @@@@@@@@@@@@@   @@@@@      @@@@         @@@@@@@@                 
+                  .@@@@@@@@@@@@@    ~@@@@@@@@@@@@@     @@@@@@@@@@@@@   @@@@@      @@@@          @@@@@@#                 
+                  @@@@@@@@@@@@@;    @@@@@@@@@@@@@~     @@@@@@@@@@@@@   @@@@@      @@@@          @@@@@@                  
+                   @@@@@@@@@@@       @@@@@@@@@@@       @@@@@@@@@@@@@   @@@@@      @@@@          @@@@@@                  
+                       @@@@              @@@@                                                    @@@@$                  
+                                                                                                 @@@@!
+                                                                                                 @@@@!
+                                                                                                 @@@@!
+                                                                                                @@@@!
+Developed by Shou Chaofan (scf@ieee.org)                                                         
+ 
+""")
+Email = raw_input("CloudFlare's Email? ")
+Token = raw_input("CloudFlare's token? ")
 cf = CloudFlare.CloudFlare(email=Email, token=Token)
 zones = cf.zones.get()
 z = []
@@ -15,13 +49,13 @@ for zone in zones:
     zone_id = zone['id']
     zone_name = zone['name']
     z.append([zone_id,zone_name])
-    print k, zone_id, zone_name
-k = input("Which one you'd like to choose?")
-port = input("port? [Optional]")
-hostname = input("hostname? [Optional]")
+    print(k, zone_id, zone_name)
+k = raw_input("Which domain you'd like to choose? [e.g. 1] ")
+port = raw_input("Server's port? [Optional] ")
+hostname = raw_input("Server's hostname? [Optional] ")
 
-end = z[k-1][1]
-zone_id = z[k-1][0]
+end = z[int(k)-1][1]
+zone_id = z[int(k)-1][0]
 
 
 def dns(type,name,content):
