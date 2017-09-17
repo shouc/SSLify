@@ -50,6 +50,7 @@ for zone in zones:
     zone_name = zone['name']
     z.append([zone_id,zone_name])
     print(k, zone_id, zone_name)
+    k = k + 1
 k = raw_input("Which domain you'd like to choose? [e.g. 1] ")
 port = raw_input("Server's port? [Optional] ")
 hostname = raw_input("Server's hostname? [Optional] ")
@@ -90,7 +91,7 @@ def api(type,name):
             push(dns(type,name,name))
             return {
                 'type' : 'success',
-                'message' : "Enjoy! The address is <a href='" + domain + "'>" + domain + "</a>",
+                'message' : "Enjoy! The address is <a href='https://" + domain + "'>" + domain + "</a>",
             }
     elif type == "A":
         if checkip(name) == False:
@@ -102,7 +103,7 @@ def api(type,name):
             push(dns(type,name,name))
             return {
                 'type' : 'success',
-                'message' : "Enjoy! The address is <a href='" + domain + "'>" + domain + "</a>",
+                'message' : "Enjoy! The address is <a href='https://" + domain + "'>" + domain + "</a>",
             }        
     else:
         return {
